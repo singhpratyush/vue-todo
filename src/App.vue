@@ -32,11 +32,9 @@ export default {
     }
     if (!todoData) {
       todoData = {
-        todos: {
-          1: { isCompleted: false, task: "This is a task" }
-        },
-        todo_ids: [1],
-        lastId: 1
+        todos: {},
+        todo_ids: [],
+        lastId: 0
       };
     }
     return todoData;
