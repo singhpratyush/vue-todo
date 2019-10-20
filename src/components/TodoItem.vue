@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input type="checkbox" v-bind:checked="isCompleted" v-on:click="toggleIsCompleted"/>
+    <input type="checkbox" v-bind:checked="isCompleted" v-on:click="toggleIsCompleted" />
     <span v-if="editing">
       <input v-model="inputValue" />
       <button v-on:click="onSave">Save</button>
@@ -19,31 +19,28 @@ export default {
   props: {
     isCompleted: Boolean,
     task: String,
-    id: Number,
+    id: Number
   },
   data: function() {
     return {
       editing: false,
-      inputValue: this.task,
+      inputValue: this.task
     };
   },
   methods: {
-    onEditStart: function () {
+    onEditStart: function() {
       this.editing = true;
     },
-    onSave: function () {
+    onSave: function() {
       this.editing = false;
-      this.$emit('todo-update', this.id, { task: this.inputValue });
+      this.$emit("todo-update", this.id, { task: this.inputValue });
     },
-    onDelete: function () {
-      this.$emit('todo-delete', this.id);
+    onDelete: function() {
+      this.$emit("todo-delete", this.id);
     },
-    toggleIsCompleted: function () {
-      this.$emit('todo-update', this.id, { isCompleted: !this.isCompleted });
-    },
-  },
+    toggleIsCompleted: function() {
+      this.$emit("todo-update", this.id, { isCompleted: !this.isCompleted });
+    }
+  }
 };
 </script>
-
-<style scoped>
-</style>
